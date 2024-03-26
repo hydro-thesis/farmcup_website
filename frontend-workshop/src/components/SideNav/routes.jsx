@@ -1,5 +1,5 @@
 const routes = [
-  { path: "/", name: "Dashboard" },
+  { path: "/", name: "Home" },
   { path: "/pHLevel", name: "pH Level" },
   { path: "/water_temperature", name: "Water Temperature" },
   { path: "/ec", name: "Electrical Conductivity" },
