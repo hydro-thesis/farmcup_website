@@ -27,9 +27,10 @@
 /* END OF TABLE CSS */
 
 h1 {
-  color: rgb(255, 255, 255);
-  text-align: left;
+  color: rgb(27, 27, 27);
+  text-align: center;
   font-size: 35px;
+
 }
 
 /* -------------------- APP.JSX -----------------------------*/
