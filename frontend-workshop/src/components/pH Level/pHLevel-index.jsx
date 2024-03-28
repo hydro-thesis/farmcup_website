@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import PHLevelTable from "./pH-table";
 import PHLevelGraph from "./pH-graph";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { UserData } from "./Data";
 
 const pHLevelIndex = () => {
   return (
@@ -14,7 +15,7 @@ const pHLevelIndex = () => {
       </TabList>
       <TabPanels>
         <TabPanel>
-          <PHLevelTable />
+          <PHLevelTable userData={UserData} />
         </TabPanel>
         <TabPanel>
           <PHLevelGraph />
