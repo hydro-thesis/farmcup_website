@@ -1,8 +1,9 @@
-import React from "react";
+import React, { userState } from "react";
 import PropTypes from "prop-types";
 import WaterTempTable from "./waterTemp-table";
 import WaterTempGraph from "./waterTemp-graph";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { UserData } from "./Data";
 
 const waterTempIndex = () => {
   return (
@@ -14,7 +15,7 @@ const waterTempIndex = () => {
       </TabList>
       <TabPanels>
         <TabPanel>
-          <WaterTempTable />
+          <WaterTempTable userData={UserData} />
         </TabPanel>
         <TabPanel>
           <WaterTempGraph />
