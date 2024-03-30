@@ -20,7 +20,7 @@ const Clock = () => {
         const year = d.getFullYear();
         const month = formatTime(d.getMonth() + 1); // Months are zero-indexed
         const day = formatTime(d.getDate());
-        return `${dayOfWeek}, ${year}-${month}-${day}`;
+        return `${dayOfWeek}, ${month}-${day}-${year}`;
     }
 
     function tick() {
@@ -49,8 +49,7 @@ const Clock = () => {
                     <Text size={'md'}> {date} </Text>
                 </GridItem>
                 <GridItem bgColor={''} textAlign={'right'} mr={5}>
-                    <Heading size={'md'}> {time} </Heading>
-                    
+                    <Text size={'md'}> {time} </Text>
                 </GridItem>
             </SimpleGrid>
         </Flex>
