@@ -1,8 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
+  Button,
   Divider,
   Flex,
+  Grid,
+  HStack,
+  Input,
+  Spacer,
   Table,
   TableContainer,
   Tbody,
@@ -10,6 +15,7 @@ import {
   Th,
   Thead,
   Tr,
+  VStack,
 } from "@chakra-ui/react";
 import { UserData } from "./Data";
 import "chart.js/auto";
@@ -55,9 +61,14 @@ const pHLevelTable = ({ userData }) => {
         </TableContainer>
       </Flex>
       <Divider orientation="vertical" w="2vw" />
-      <Flex justify="center" minW="50vw">
-        <Line data={initialData} />
-      </Flex>
+      <Grid justify="center" minW="50vw">
+        <VStack>
+          <Line data={initialData} />
+          <Divider />
+          <Input variant="outline" placeholder="Enter desired pH level here" />
+          <Button>Update</Button>
+        </VStack>
+      </Grid>
     </Flex>
   );
 };

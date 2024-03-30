@@ -9,7 +9,6 @@ const pHLevelIndex = () => {
     <Tabs isFitted variant="soft-rounded" colorScheme="green">
       <TabList>
         <Tab>Data</Tab>
-        <Tab>Control</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
