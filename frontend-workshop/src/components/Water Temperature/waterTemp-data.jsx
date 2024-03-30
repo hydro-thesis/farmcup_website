@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
+  Button,
   Divider,
   Flex,
+  Grid,
+  Input,
   Table,
   TableContainer,
   Tbody,
@@ -10,22 +13,49 @@ import {
   Th,
   Thead,
   Tr,
+  VStack,
 } from "@chakra-ui/react";
+import { Line } from "react-chartjs-2";
 import { UserData } from "./Data";
 import "chart.js/auto";
-import { Line } from "react-chartjs-2";
 
-const initialData = {
-  labels: UserData.map((data) => data.year),
-  datasets: [
-    {
-      label: "Water Temperature",
-      data: UserData.map((data) => data.waterTemp),
-    },
-  ],
-};
+const WaterTempTable = ({ userData }) => {
+  const [newWaterTemp, setNewWaterTemp] = useState(""); // State to hold new water temperature value
+  const [userDataState, setUserData] = useState(userData); // State to hold UserData
 
-const waterTempTable = ({ userData }) => {
+  // Load input value from local storage on component mount
+  useEffect(() => {
+    const savedInput = localStorage.getItem("waterTempInput");
+    if (savedInput) {
+      setNewWaterTemp(savedInput);
+    }
+  }, []);
+
+  // Function to handle update button click
+  const handleUpdate = () => {
+    const updatedUserData = [...userDataState]; // Create a copy of UserData array
+    const newEntry = {
+      year: new Date().getFullYear(),
+      waterTemp: parseInt(newWaterTemp),
+    };
+    updatedUserData.push(newEntry); // Push new data
+    // Update UserData state
+    setUserData(updatedUserData);
+    setNewWaterTemp(""); // Clear input field after update
+    // Save input value to local storage
+    localStorage.setItem("waterTempInput", "");
+  };
+
+  const initialData = {
+    labels: userDataState.map((data) => data.year),
+    datasets: [
+      {
+        label: "Water Temperature",
+        data: userDataState.map((data) => data.waterTemp),
+      },
+    ],
+  };
+
   return (
     <Flex justify="center">
       <Flex justify="center" minW="25vw">
@@ -38,11 +68,11 @@ const waterTempTable = ({ userData }) => {
               </Tr>
             </Thead>
             <Tbody>
-              {userData && userData.length > 0 ? (
-                userData.map((waterTemp, id) => (
-                  <Tr key={`waterTemp-${id}`}>
-                    <Td>{waterTemp?.waterTemp}</Td>
-                    <Td>{waterTemp?.year}</Td>
+              {userDataState && userDataState.length > 0 ? (
+                userDataState.map((entry, id) => (
+                  <Tr key={`entry-${id}`}>
+                    <Td>{entry?.waterTemp}</Td>
+                    <Td>{entry?.year}</Td>
                   </Tr>
                 ))
               ) : (
@@ -55,13 +85,23 @@ const waterTempTable = ({ userData }) => {
         </TableContainer>
       </Flex>
       <Divider orientation="vertical" w="2vw" />
-      <Flex justify="center" minW="50vw">
-        <Line data={initialData} />
-      </Flex>
+      <Grid justify="center" minW="50vw">
+        <VStack>
+          <Line data={initialData} />
+          <Divider />
+          <Input
+            variant="outline"
+            placeholder="Enter desired water temperature here"
+            value={newWaterTemp}
+            onChange={(e) => setNewWaterTemp(e.target.value)}
+          />
+          <Button onClick={handleUpdate}>Update</Button>
+        </VStack>
+      </Grid>
     </Flex>
   );
 };
 
-waterTempTable.propTypes = { userData: PropTypes.array };
+WaterTempTable.propTypes = { userData: PropTypes.array };
 
-export default waterTempTable;
+export default WaterTempTable;
