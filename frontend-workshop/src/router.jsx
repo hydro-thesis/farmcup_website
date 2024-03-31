@@ -10,6 +10,7 @@ import ViewCompanies from './pages/ViewCompanies';
 import ViewProjects from './pages/ViewProjects';
 import ViewRequests from './pages/ViewRequests/';
 import RequestPage from './pages/RequestPage';
+import Temperature from './components/Temp and Humidity/temp-humid-index'
 
 const routes = [
     {
@@ -25,7 +26,8 @@ const routes = [
             { path: '/projects', element: <ProjectPage/>},
             { path: '/projects/:id', element: <ViewProjects/>},
             { path: '/requests', element: <RequestPage/>},
-            { path: '/requests/:id', element: <ViewRequests/>}
+            { path: '/requests/:id', element: <ViewRequests/>},
+            { path: '/temperature', element: <Temperature/>}
             
         ]
     },  
