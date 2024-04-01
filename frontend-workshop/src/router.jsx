@@ -27,7 +27,7 @@ const routes = [
             { path: '/projects/:id', element: <ViewProjects/>},
             { path: '/requests', element: <RequestPage/>},
             { path: '/requests/:id', element: <ViewRequests/>},
-            { path: '/temperature', element: <Temperature/>}
+            { path: '/temperature_humidity', element: <Temperature/>}
             
         ]
     },  
