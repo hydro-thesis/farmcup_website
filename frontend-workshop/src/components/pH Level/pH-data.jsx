@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   Button,
@@ -20,18 +20,29 @@ import {
 import { UserData } from "./Data";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
+import axios from "axios";
 
-const initialData = {
-  labels: UserData.map((data) => data.year),
-  datasets: [
-    {
-      label: "pH Level",
-      data: UserData.map((data) => data.pH),
-    },
-  ],
-};
+import io from "socket.io-client";
+const socket = io.connect("http://localhost:5173");
 
-const pHLevelTable = ({ userData }) => {
+function pHLevelTable() {
+  const [pH, setPH] = useState([]);
+
+  useEffect(() => {
+    const fetchpH = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/pHData");
+        console.log(res);
+        setPH(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchpH();
+  }, []);
+
+  console.log(pH);
+
   return (
     <Flex justify="center">
       <Flex justify="center" minW="25vw">
@@ -44,11 +55,11 @@ const pHLevelTable = ({ userData }) => {
               </Tr>
             </Thead>
             <Tbody>
-              {userData && userData.length > 0 ? (
-                userData.map((ph, id) => (
-                  <Tr key={`pH-${id}`}>
+              {pH && pH.length > 0 ? (
+                pH.map((ph) => (
+                  <Tr key={ph.id}>
                     <Td>{ph?.pH}</Td>
-                    <Td>{ph?.year}</Td>
+                    <Td>{ph?.time_stamp}</Td>
                   </Tr>
                 ))
               ) : (
@@ -63,7 +74,7 @@ const pHLevelTable = ({ userData }) => {
       <Divider orientation="vertical" w="2vw" />
       <Grid justify="center" minW="50vw">
         <VStack>
-          <Line data={initialData} />
+          {/* <Line /> */}
           <Divider />
           <Input variant="outline" placeholder="Enter desired pH level here" />
           <Button>Update</Button>
@@ -71,8 +82,6 @@ const pHLevelTable = ({ userData }) => {
       </Grid>
     </Flex>
   );
-};
-
-pHLevelTable.propTypes = { userData: PropTypes.array };
+}
 
 export default pHLevelTable;
