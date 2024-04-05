@@ -9,6 +9,7 @@ import PHLevel from './components/pH Level/pHLevel-index';
 import EC from './components/EC/ec-index';
 import AmbientLight from './components/AmbientLight/ambient-light-index';
 import Humidity from './components/Humidity/humidity-index';
+import Temperature from './components/Temperature/temperature-index';
 
 const routes = [
   {
@@ -22,7 +23,8 @@ const routes = [
       { path: '/pHLevel', element: <PHLevel /> },
       { path: '/ec', element: <EC /> },
       { path: '/ambient_light', element: <AmbientLight /> },
-      { path: '/humidity', element: <Humidity /> }
+      { path: '/humidity', element: <Humidity /> },
+      { path: '/temperature', element: <Temperature /> }
     ]
   },
   {
