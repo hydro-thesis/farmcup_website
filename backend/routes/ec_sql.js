@@ -14,7 +14,7 @@ function convertMonthToWords(month) {
 
 //ec Level GET for sensordata
 app.get('/ecData', (req, res) => {
-  const q = `SELECT id, ec, time_stamp  FROM sensordata`;
+  const q = `SELECT id, EC, time_stamp  FROM sensordata`;
 
   db.query(q, (err, data) => {
       if (err) {
@@ -39,7 +39,7 @@ app.get('/ecData', (req, res) => {
 
 //ec POST for sensordata
 app.post('/ecData', (req, res) => {
-    const q = 'INSERT INTO sensordata (`ec`) VALUES (?)';
+    const q = 'INSERT INTO sensordata (`EC`) VALUES (?)';
     const values = [5];
   
     db.query(q, [values], (err, data) => {
@@ -77,7 +77,7 @@ app.delete("/ecData/", (req, res) => {
 
 //ec GET for fuzzy
 app.get('/ecFuzzy', (req, res) => {
-    const q = `SELECT id, ec, time_stamp FROM fuzzyinput`;
+    const q = `SELECT id, EC, time_stamp FROM fuzzyinput`;
 
     db.query(q, (err, data) => {
         if (err) {
@@ -102,7 +102,7 @@ app.get('/ecFuzzy', (req, res) => {
 
   //ec POST for fuzzyinput
 app.post('/ecFuzzy', (req, res) => {
-    const q = 'INSERT INTO fuzzyinput (`ec`) VALUES (?)';
+    const q = 'INSERT INTO fuzzyinput (`EC`) VALUES (?)';
     const values = [91];
   
     db.query(q, [values], (err, data) => {
