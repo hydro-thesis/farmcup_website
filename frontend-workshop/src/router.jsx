@@ -1,78 +1,34 @@
-<<<<<<< HEAD
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import App from "./App";
-import Home from "./pages/Home/Home";
-import ErrorPage from "./pages/ErrorPage";
-import ResourcesPage from "./pages/ResourcesPage";
-import CompaniesPage from "./pages/CompaniesPage";
-import ProjectPage from "./pages/ProjectsPage";
-import ViewResource from "./pages/ViewResource";
-import ViewCompanies from "./pages/ViewCompanies";
-import ViewProjects from "./pages/ViewProjects";
-import ViewRequests from "./pages/ViewRequests/";
-import RequestPage from "./pages/RequestPage";
-import PHLevel from "./components/pH Level/pHLevel-index";
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import App from './App';
+import Home from './pages/Home/index';
+import ErrorPage from './pages/ErrorPage/index';
+
+import Moisture from './components/Moisture/moisture-index';
+//import TDS from './components/TDS/tds-index';
+import PHLevel from './components/pH Level/pHLevel-index';
+import EC from './components/EC/ec-index';
+//import AmbientLight from './components/AmbientLight/ambient-light-index';
+import TempAndHumidity from './components/Temp and Humidity/temp-humid-index';
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
-      { path: "", element: <Home /> },
-      { path: "/404", element: <ErrorPage /> },
-      { path: "/resources", element: <ResourcesPage /> },
-      { path: "/resources/:id", element: <ViewResource /> },
-      { path: "/companies", element: <CompaniesPage /> },
-      { path: "/companies/:id", element: <ViewCompanies /> },
-      { path: "/projects", element: <ProjectPage /> },
-      { path: "/projects/:id", element: <ViewProjects /> },
-      { path: "/requests", element: <RequestPage /> },
-      { path: "/requests/:id", element: <ViewRequests /> },
-      { path: "/pHLevel", element: <PHLevel /> },
-    ],
+      { path: '', element: <Home /> },
+      { path: '/404', element: <ErrorPage /> },
+      { path: '/moisture', element: <Moisture /> },
+      //{ path: '/tds', element: <TDS /> },
+      { path: '/pHLevel', element: <PHLevel /> },
+      { path: '/ec', element: <EC /> },
+      //{ path: '/ambient_light', element: <AmbientLight /> },
+      { path: '/temperature_humidity', element: <TempAndHumidity /> }
+    ]
   },
   {
-    path: "*",
-    element: <Navigate to="/404" replace />,
-  },
-=======
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import App from './App'
-import Home from './pages/Home/Home'
-import ErrorPage from './pages/ErrorPage';
-import ResourcesPage from './pages/ResourcesPage';
-import CompaniesPage from './pages/CompaniesPage';
-import ProjectPage from './pages/ProjectsPage';
-import ViewResource from './pages/ViewResource';
-import ViewCompanies from './pages/ViewCompanies';
-import ViewProjects from './pages/ViewProjects';
-import ViewRequests from './pages/ViewRequests/';
-import RequestPage from './pages/RequestPage';
-import WaterTemperature from "./components/Water Temperature/waterTemp-index";
-
-const routes = [
-    {
-        path: "/",
-        element: <App/>,
-        children: [
-            { path: "", element: <Home/>},
-            { path: '/404', element: <ErrorPage/>},
-            { path: '/resources', element: <ResourcesPage/>},
-            { path: '/resources/:id', element: <ViewResource />},
-            { path: '/companies', element: <CompaniesPage/>},
-            { path: '/companies/:id', element: <ViewCompanies/>},
-            { path: '/projects', element: <ProjectPage/>},
-            { path: '/projects/:id', element: <ViewProjects/>},
-            { path: '/requests', element: <RequestPage/>},
-            { path: '/requests/:id', element: <ViewRequests/>},
-            { path: "/water_temperature", element: <WaterTemperature /> },
-        ]
-    },  
-    {
-        path: '*',
-        element: <Navigate to='/404' replace/>
-    }
->>>>>>> origin/waterTemperature
+    path: '*',
+    element: <Navigate to="/404" replace />
+  }
 ];
 
 const router = createBrowserRouter(routes);

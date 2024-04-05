@@ -26,7 +26,7 @@ app.get('/pHData', (req, res) => {
       data.forEach(record => {
         const timestamp = moment.utc(record.time_stamp).utcOffset('+08:00');
         const month = convertMonthToWords(timestamp.month() + 1);
-        const formattedTimestamp = timestamp.format("HH:mm") + " " + month + " " + timestamp.format("DD");
+        const formattedTimestamp = timestamp.format("HH:mm");
         record.time_stamp = formattedTimestamp;
     });
 

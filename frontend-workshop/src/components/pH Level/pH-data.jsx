@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Divider,
   Flex,
   Grid,
-  HStack,
   Input,
-  Spacer,
   Table,
   TableContainer,
   Tbody,
@@ -15,14 +13,12 @@ import {
   Th,
   Thead,
   Tr,
-  VStack,
-} from "@chakra-ui/react";
-import { UserData } from "./Data";
-import "chart.js/auto";
-import { Line } from "react-chartjs-2";
-import axios from "axios";
-import io from "socket.io-client";
-const socket = io.connect("http://localhost:5173");
+  VStack
+} from '@chakra-ui/react';
+
+import 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
+import axios from 'axios';
 
 function pHLevelTable() {
   const [pH, setPH] = useState([]);
@@ -30,8 +26,7 @@ function pHLevelTable() {
   useEffect(() => {
     const fetchpH = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/pHData");
-        console.log(res);
+        const res = await axios.get('http://localhost:5000/pHData');
         setPH(res.data);
       } catch (err) {
         console.log(err);
@@ -40,7 +35,19 @@ function pHLevelTable() {
     fetchpH();
   }, []);
 
-  console.log(pH);
+  // Convert fetched data to chart format
+  const chartData = {
+    labels: pH.map((data) => data.time_stamp),
+    datasets: [
+      {
+        label: 'pH Value',
+        data: pH.map((data) => data.pH),
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }
+    ]
+  };
 
   return (
     <Flex justify="center">
@@ -73,7 +80,7 @@ function pHLevelTable() {
       <Divider orientation="vertical" w="2vw" />
       <Grid justify="center" minW="50vw">
         <VStack>
-          {/* <Line /> */}
+          <Line data={chartData} />
           <Divider />
           <Input variant="outline" placeholder="Enter desired pH level here" />
           <Button>Update</Button>
