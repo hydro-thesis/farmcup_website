@@ -3,7 +3,6 @@ const cors = require("cors");
 const port = process.env.PORT || 5000;
 
 const http = require("http");
-const {Server} = require("socket.io");
 
 var db = require('./database/database.js'); //database connection
 
@@ -29,6 +28,7 @@ app.use(express.urlencoded({
 //register routes
 app.use('/',[
   require('./routes/pH_sql'), //pH Level
+  require('./routes/moisture_sql'),//moisture
   require('./routes/tds_sql'), // tds
 ]);
 
@@ -37,25 +37,7 @@ app.get("/", (req, res) => {
   res.json("hello");
 });
 
-// WEBSOCKET.io
-const server = http.createServer(app);
-
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5000",
-    methods: ["GET", "POST", "DELETE"],
-  },
+//initialte api
+  app.listen(port, () => {
+    console.log(`Listening at http://localhost:${port}`);
 });
-
-io.on("connection", (socket) => {
-  console.log("User connected");
-})
-
-server.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
-});
-
-// //initialte api
-//   app.listen(port, () => {
-//     console.log(`Listening at http://localhost:${port}`);
-// });

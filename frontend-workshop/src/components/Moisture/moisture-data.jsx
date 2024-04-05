@@ -1,9 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
+  Button,
   Divider,
   Flex,
   Grid,
+  Input,
   Table,
   TableContainer,
   Tbody,
@@ -11,23 +13,41 @@ import {
   Th,
   Thead,
   Tr,
-  VStack,
-} from "@chakra-ui/react";
-import { UserData } from "./Data";
-import "chart.js/auto";
-import { Line } from "react-chartjs-2";
+  VStack
+} from '@chakra-ui/react';
 
-const initialData = {
-  labels: UserData.map((data) => data.year),
-  datasets: [
-    {
-      label: "Cocopeat Moisture Level",
-      data: UserData.map((data) => data.moisture),
-    },
-  ],
-};
+import 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
+import axios from 'axios';
 
-const moistureTable = ({ userData }) => {
+function moistureTable() {
+  const [moisture, setMoisture] = useState([]);
+
+  useEffect(() => {
+    const fetchmoisture = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/moistureData');
+        setMoisture(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchmoisture();
+  }, []);
+
+  // Convert fetched data to chart format
+  const chartData = {
+    labels: moisture.map((data) => data.time_stamp),
+    datasets: [
+      {
+        label: 'Moisture Value',
+        data: moisture.map((data) => data.moisture),
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }
+    ]
+  };
   return (
     <Flex justify="center">
       <Flex justify="center" minW="25vw">
@@ -40,11 +60,11 @@ const moistureTable = ({ userData }) => {
               </Tr>
             </Thead>
             <Tbody>
-              {userData && userData.length > 0 ? (
-                userData.map((moisture, id) => (
-                  <Tr key={`moisture-${id}`}>
+              {moisture && moisture.length > 0 ? (
+                moisture.map((moisture) => (
+                  <Tr key={moisture.id}>
                     <Td>{moisture?.moisture}</Td>
-                    <Td>{moisture?.year}</Td>
+                    <Td>{moisture?.time_stamp}</Td>
                   </Tr>
                 ))
               ) : (
@@ -58,12 +78,14 @@ const moistureTable = ({ userData }) => {
       </Flex>
       <Divider orientation="vertical" w="2vw" />
       <Grid justify="center" minW="50vw">
-        <Line data={initialData} />
+        <VStack>
+          <Line data={chartData} />
+        </VStack>
       </Grid>
     </Flex>
   );
-};
+}
 
-moistureTable.propTypes = { userData: PropTypes.array };
+moistureTable.propTypes = {};
 
 export default moistureTable;
