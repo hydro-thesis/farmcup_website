@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Flex,
@@ -13,8 +13,25 @@ import {
 import data from '../../utils/parameters.json';
 import keyDisplay from './key-display-names';
 import unitMap from './display-units';
+import axios from 'axios';
 
 const HomeIndex = () => {
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    const fetchHome = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/homeData');
+        setHome(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchHome();
+  }, []);
+
+  console.log(home.map((data) => data.pH));
+
   //Last item in the 'database' for updated values
   const lastItem = data[data.length - 1];
   const previousData = data[data.length - 2];

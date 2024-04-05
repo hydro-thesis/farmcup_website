@@ -27,6 +27,7 @@ app.use(express.urlencoded({
 
 //register routes
 app.use('/',[
+  require('./routes/home_sql'), //home
   require('./routes/pH_sql'), //pH Level
   require('./routes/moisture_sql'),//moisture
   require('./routes/tds_sql'), // tds

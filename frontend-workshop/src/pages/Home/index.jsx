@@ -1,27 +1,26 @@
-import '../../App.css'
+import '../../App.css';
+import React, { useEffect, useState } from 'react';
 import HomeIndex from '../../components/Home/home-index';
 import HomeHeader from './header';
 import Clock from '../../assets/live-clock';
 import { Box, ChakraProvider } from '@chakra-ui/react';
-import theme from '../../theme'
+import theme from '../../theme';
 import CameraFeed from '../../components/Home/camera-feed';
 
-function Home () {
+function Home() {
   return (
     <ChakraProvider theme={theme}>
       <Box border={'1px'}>
-        <HomeHeader/>
-      </Box>
-      <Box border = {'1px'}>
-        <Clock/>
-      </Box>
-      <Box>
-        {/* <CameraFeed/> */}
+        <HomeHeader />
       </Box>
       <Box border={'1px'}>
-        <HomeIndex/>
+        <Clock />
+      </Box>
+      <Box>{/* <CameraFeed/> */}</Box>
+      <Box border={'1px'}>
+        <HomeIndex />
       </Box>
     </ChakraProvider>
   );
-};
+}
 export default Home;
