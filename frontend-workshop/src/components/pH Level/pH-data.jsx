@@ -21,7 +21,6 @@ import { UserData } from "./Data";
 import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
-
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:5173");
 
