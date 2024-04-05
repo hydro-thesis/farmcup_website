@@ -32,6 +32,7 @@ app.use('/',[
   require('./routes/tds_sql'), // tds
   require('./routes/ec_sql'), // EC
   require('./routes/ambient_light_sql'), // EC
+  require('./routes/humidity_sql'), //humidity
 ]);
 
 //test
