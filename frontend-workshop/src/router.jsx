@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home/Home";
@@ -34,6 +35,44 @@ const routes = [
     path: "*",
     element: <Navigate to="/404" replace />,
   },
+=======
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import App from './App'
+import Home from './pages/Home/Home'
+import ErrorPage from './pages/ErrorPage';
+import ResourcesPage from './pages/ResourcesPage';
+import CompaniesPage from './pages/CompaniesPage';
+import ProjectPage from './pages/ProjectsPage';
+import ViewResource from './pages/ViewResource';
+import ViewCompanies from './pages/ViewCompanies';
+import ViewProjects from './pages/ViewProjects';
+import ViewRequests from './pages/ViewRequests/';
+import RequestPage from './pages/RequestPage';
+import WaterTemperature from "./components/Water Temperature/waterTemp-index";
+
+const routes = [
+    {
+        path: "/",
+        element: <App/>,
+        children: [
+            { path: "", element: <Home/>},
+            { path: '/404', element: <ErrorPage/>},
+            { path: '/resources', element: <ResourcesPage/>},
+            { path: '/resources/:id', element: <ViewResource />},
+            { path: '/companies', element: <CompaniesPage/>},
+            { path: '/companies/:id', element: <ViewCompanies/>},
+            { path: '/projects', element: <ProjectPage/>},
+            { path: '/projects/:id', element: <ViewProjects/>},
+            { path: '/requests', element: <RequestPage/>},
+            { path: '/requests/:id', element: <ViewRequests/>},
+            { path: "/water_temperature", element: <WaterTemperature /> },
+        ]
+    },  
+    {
+        path: '*',
+        element: <Navigate to='/404' replace/>
+    }
+>>>>>>> origin/waterTemperature
 ];
 
 const router = createBrowserRouter(routes);
