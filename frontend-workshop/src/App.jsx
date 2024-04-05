@@ -3,10 +3,8 @@ import { Box, ChakraProvider, Flex, Grid, GridItem, Stack } from '@chakra-ui/rea
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import theme from './theme';
 import SideNav from './components/SideNav';
-import { app } from './services/firebase';
 
 function App() {
-  //console.log(app)
   return (
     <ChakraProvider theme={theme}>
       <Grid 
