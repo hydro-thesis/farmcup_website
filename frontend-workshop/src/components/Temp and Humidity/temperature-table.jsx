@@ -5,7 +5,6 @@ import {
   Divider,
   Flex,
   Grid,
-  HStack,
   Input,
   Spacer,
   Table,
@@ -19,9 +18,8 @@ import {
 } from "@chakra-ui/react";
 import { UserData } from "./Data";
 import "chart.js/auto";
-import { Bar, Bubble, Doughnut, Line, Scatter } from "react-chartjs-2";
-import { collection, addDoc } from "firebase/firestore"; 
-import { db } from "../../services/firebase";
+import { Line } from "react-chartjs-2";
+import axios from 'axios'
 
 const initialData = {
   labels: UserData.map((data) => data.year),
@@ -33,17 +31,22 @@ const initialData = {
   ],
 };
 
-
-async function addDocToDB(text) {
-  await addDoc(collection(db, "parameters"), {
-    pH: text,
-    water_level: text
+const TemperatureHumidityTable = ({ userData }) => {
+  const [formData, setFormData] = useState({
+    temperature: "",
+    ph: "",
   });
-}
 
-const temperatureHumidityTable = ({ userData }) => {
-  const [value, setValue] = useState(""); // State to hold input value
-  const inputRef = useRef(null); // Reference to input element
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //axios.post();
+    console.log(formData);
+  };
 
   return (
     <Flex justify="center">
@@ -78,14 +81,29 @@ const temperatureHumidityTable = ({ userData }) => {
         <VStack>
           <Line data={initialData} />
           <Divider />
-          <Input variant="outline" placeholder="Enter desired EC level here" ref={inputRef} />
-          <Button onClick={() => {addDocToDB(inputRef.current.value || '')}}>Update</Button>
+          <Input
+            type="text"
+            variant="outline"
+            name="temperature"
+            value={formData.temperature}
+            placeholder="Input Temperature"
+            onChange={handleChange}
+          />
+          <Input
+            type="text"
+            variant="outline"
+            name="ph"
+            value={formData.ph}
+            placeholder="Input PH"
+            onChange={handleChange}
+          />
+          <Button onClick={handleSubmit}>Update</Button>
         </VStack>
       </Grid>
     </Flex>
   );
 };
 
-temperatureHumidityTable.propTypes = { userData: PropTypes.array };
+TemperatureHumidityTable.propTypes = { userData: PropTypes.array };
 
-export default temperatureHumidityTable;
+export default TemperatureHumidityTable;
