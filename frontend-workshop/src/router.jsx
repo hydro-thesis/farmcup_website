@@ -7,7 +7,7 @@ import Moisture from './components/Moisture/moisture-index';
 import TDS from './components/TDS/tds-index';
 import PHLevel from './components/pH Level/pHLevel-index';
 import EC from './components/EC/ec-index';
-//import AmbientLight from './components/AmbientLight/ambient-light-index';
+import AmbientLight from './components/AmbientLight/ambient-light-index';
 import TempAndHumidity from './components/Temp and Humidity/temp-humid-index';
 
 const routes = [
@@ -21,7 +21,7 @@ const routes = [
       { path: '/tds', element: <TDS /> },
       { path: '/pHLevel', element: <PHLevel /> },
       { path: '/ec', element: <EC /> },
-      //{ path: '/ambient_light', element: <AmbientLight /> },
+      { path: '/ambient_light', element: <AmbientLight /> },
       { path: '/temperature_humidity', element: <TempAndHumidity /> }
     ]
   },

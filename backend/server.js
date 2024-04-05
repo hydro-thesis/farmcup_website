@@ -30,7 +30,8 @@ app.use('/',[
   require('./routes/pH_sql'), //pH Level
   require('./routes/moisture_sql'),//moisture
   require('./routes/tds_sql'), // tds
-  require('./routes/ec_sql.js'), // tds
+  require('./routes/ec_sql'), // EC
+  require('./routes/ambient_light_sql'), // EC
 ]);
 
 //test
