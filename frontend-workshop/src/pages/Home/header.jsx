@@ -1,12 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Heading } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react';
 
-const Header = props => {
-    return (
-        <Heading mb = {8}>Farm Cup Garden Dashboard</Heading>
-    )
-}
+const HomeHeader = () => {
+  return <Heading mb={8}>Farm Cup Dashboard</Heading>;
+};
 
-Header.propTypes = {}
-export default Header; 
+export default HomeHeader;
