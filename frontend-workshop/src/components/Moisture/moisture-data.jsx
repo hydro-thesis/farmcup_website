@@ -21,27 +21,30 @@ import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
 function moistureTable() {
-  const [moisture, setMoisture] = useState([]);
+  const [moisture, setMoisture] = useState([]); //useState to get data, JSON data to be found in moisture
 
+  //useEffect to run on every refresh
   useEffect(() => {
     const fetchmoisture = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/moistureData');
+        const res = await axios.get('http://localhost:5000/moistureData'); //axios to assign response to api endpoint "/moistureData"
         setMoisture(res.data);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchmoisture();
+    fetchmoisture(); //run the const
   }, []);
+
+  //can console.log(moisture);
 
   // Convert fetched data to chart format
   const chartData = {
-    labels: moisture.map((data) => data.time_stamp),
+    labels: moisture.map((data) => data.time_stamp), //time_stamp column in db
     datasets: [
       {
         label: 'Moisture Value',
-        data: moisture.map((data) => data.moisture),
+        data: moisture.map((data) => data.moisture), //moisture column in db
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
@@ -60,7 +63,7 @@ function moistureTable() {
               </Tr>
             </Thead>
             <Tbody>
-              {moisture && moisture.length > 0 ? (
+              {moisture && moisture.length > 0 ? ( //data map to get plot data
                 moisture.map((moisture) => (
                   <Tr key={moisture.id}>
                     <Td>{moisture?.moisture}</Td>

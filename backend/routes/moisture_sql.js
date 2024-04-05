@@ -13,24 +13,24 @@ function convertMonthToWords(month) {
 }
 
 //moisture Level GET for sensordata
-app.get('/moistureData', (req, res) => {
-  const q = `SELECT id, moisture, time_stamp  FROM sensordata`;
+app.get('/moistureData', (req, res) => { //moistureData api endpoint in backend is different from /moisture URL from frontend
+  const q = `SELECT id, moisture, time_stamp  FROM sensordata`; //sql query
 
   db.query(q, (err, data) => {
       if (err) {
-          res.status(400).json({
+          res.status(400).json({ //if error
               message: err
           });
-          return res.json(data);
+          return res.json(data); //returns the response
       }
-      data.forEach(record => {
-        const timestamp = moment.utc(record.time_stamp).utcOffset('+08:00');
+      data.forEach(record => { //only for conversion of timestamp
+        const timestamp = moment.utc(record.time_stamp).utcOffset('+08:00'); //UTC+8
         const month = convertMonthToWords(timestamp.month() + 1);
         const formattedTimestamp = timestamp.format("HH:mm");
         record.time_stamp = formattedTimestamp;
     });
 
-      if (data.length) {res.json(data)
+      if (data.length) {res.json(data) //here is the data
       }
       else res.json({});
 

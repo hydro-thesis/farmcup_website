@@ -25,7 +25,7 @@ app.use(express.urlencoded({
   extended:true
 }));
 
-//register routes
+//register routes "files"
 app.use('/',[
   require('./routes/home_sql'), //home
   require('./routes/pH_sql'), //pH Level
