@@ -12,9 +12,9 @@ function convertMonthToWords(month) {
     return monthsArray[month - 1]; // converting timestamp to a more readable format
 }
 
-//tds Level GET for sensordata
-app.get('/tdsData', (req, res) => {
-  const q = `SELECT id, tds, time_stamp  FROM sensordata`;
+//ec Level GET for sensordata
+app.get('/ecData', (req, res) => {
+  const q = `SELECT id, ec, time_stamp  FROM sensordata`;
 
   db.query(q, (err, data) => {
       if (err) {
@@ -37,9 +37,9 @@ app.get('/tdsData', (req, res) => {
   });
 });
 
-//tds POST for sensordata
-app.post('/tdsData', (req, res) => {
-    const q = 'INSERT INTO sensordata (`tds`) VALUES (?)';
+//ec POST for sensordata
+app.post('/ecData', (req, res) => {
+    const q = 'INSERT INTO sensordata (`ec`) VALUES (?)';
     const values = [5];
   
     db.query(q, [values], (err, data) => {
@@ -52,12 +52,12 @@ app.post('/tdsData', (req, res) => {
     });
   });
 
-//tds REMOVE for sensordata
-app.delete("/tdsData/", (req, res) => {
-    const tdsId = 7;
+//ec REMOVE for sensordata
+app.delete("/ecData/", (req, res) => {
+    const ecId = 7;
     const q = " DELETE FROM sensordata WHERE id = ? ";
   
-    db.query(q, [tdsId], (err, data) => {
+    db.query(q, [ecId], (err, data) => {
       if (err) return res.send(err);
       return res.json(data);
     });
@@ -75,9 +75,9 @@ app.delete("/tdsData/", (req, res) => {
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //FUZZY
 
-//tds GET for fuzzy
-app.get('/tdsFuzzy', (req, res) => {
-    const q = `SELECT id, tds, time_stamp FROM fuzzyinput`;
+//ec GET for fuzzy
+app.get('/ecFuzzy', (req, res) => {
+    const q = `SELECT id, ec, time_stamp FROM fuzzyinput`;
 
     db.query(q, (err, data) => {
         if (err) {
@@ -100,9 +100,9 @@ app.get('/tdsFuzzy', (req, res) => {
     });
   });
 
-  //tds POST for fuzzyinput
-app.post('/tdsFuzzy', (req, res) => {
-    const q = 'INSERT INTO fuzzyinput (`tds`) VALUES (?)';
+  //ec POST for fuzzyinput
+app.post('/ecFuzzy', (req, res) => {
+    const q = 'INSERT INTO fuzzyinput (`ec`) VALUES (?)';
     const values = [91];
   
     db.query(q, [values], (err, data) => {
@@ -116,12 +116,12 @@ app.post('/tdsFuzzy', (req, res) => {
   });
 
 
-  //tds REMOVE for fuzzyinput
-app.delete("/tdsFuzzy", (req, res) => {
-    const tdsId = 7;
+  //ec REMOVE for fuzzyinput
+app.delete("/ecFuzzy", (req, res) => {
+    const ecId = 7;
     const q = " DELETE FROM fuzzyinput WHERE id = ? ";
   
-    db.query(q, [tdsId], (err, data) => {
+    db.query(q, [ecId], (err, data) => {
       if (err) return res.send(err);
       return res.json(data);
     });

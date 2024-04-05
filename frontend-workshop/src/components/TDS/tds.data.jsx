@@ -5,9 +5,7 @@ import {
   Divider,
   Flex,
   Grid,
-  HStack,
   Input,
-  Spacer,
   Table,
   TableContainer,
   Tbody,
@@ -22,28 +20,28 @@ import 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-function ecTable() {
-  const [ec, setEC] = useState([]);
+function tdsLevelTable() {
+  const [tds, settds] = useState([]);
 
   useEffect(() => {
-    const fetchec = async () => {
+    const fetchtds = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/ecData');
-        setEC(res.data);
+        const res = await axios.get('http://localhost:5000/tdsData');
+        settds(res.data);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchec();
+    fetchtds();
   }, []);
 
   // Convert fetched data to chart format
   const chartData = {
-    labels: ec.map((data) => data.time_stamp),
+    labels: tds.map((data) => data.time_stamp),
     datasets: [
       {
-        label: 'ec Value',
-        data: ec.map((data) => data.EC),
+        label: 'tds Value',
+        data: tds.map((data) => data.tds),
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
@@ -58,16 +56,16 @@ function ecTable() {
           <Table size="sm" minW="25vw" textAlign="center">
             <Thead>
               <Tr>
-                <Th>EC Level</Th>
+                <Th>tds Level</Th>
                 <Th>Time Stamp</Th>
               </Tr>
             </Thead>
             <Tbody>
-              {ec && ec.length > 0 ? (
-                ec.map((ec) => (
-                  <Tr key={ec.id}>
-                    <Td>{ec?.EC}</Td>
-                    <Td>{ec?.time_stamp}</Td>
+              {tds && tds.length > 0 ? (
+                tds.map((tds) => (
+                  <Tr key={tds.id}>
+                    <Td>{tds?.tds}</Td>
+                    <Td>{tds?.time_stamp}</Td>
                   </Tr>
                 ))
               ) : (
@@ -84,7 +82,7 @@ function ecTable() {
         <VStack>
           <Line data={chartData} />
           <Divider />
-          <Input variant="outline" placeholder="Enter desired EC level here" />
+          <Input variant="outline" placeholder="Enter desired tds level here" />
           <Button>Update</Button>
         </VStack>
       </Grid>
@@ -92,6 +90,4 @@ function ecTable() {
   );
 }
 
-ecTable.propTypes = { userData: PropTypes.array };
-
-export default ecTable;
+export default tdsLevelTable;
