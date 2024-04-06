@@ -1,12 +1,11 @@
 const keyDisplay = {
-    ph_level: 'pH Level of Water',
-    water_temperature: 'Water Temperature',
-    water_ec: 'Water Electrical Conductivity',
-    tds: 'Total Dissolved Solids (TDS)',
-    water_level: 'Water Level',
     moisture: 'Cocopeat Moisture',
+    tds: 'Total Dissolved Solids (TDS)',
+    pH: 'pH Level of Water',
+    EC: 'Electrical Conductivity',
     ambient_light: 'Ambient Light',
-    ambient_temperature_humidity: 'Ambient Temperature & Humidity'
+    temperature: 'Ambient Temperature',
+    humidity: 'Ambient Humidity'
 };
 
 export default keyDisplay;
