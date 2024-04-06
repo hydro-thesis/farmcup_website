@@ -19,7 +19,7 @@ const moistureIndex = () => {
             //console.clear();
 
             // Redirect to the pH view route after 30 seconds of inactivity
-            window.location.href = 'https://farmcup-website-host.vercel.app/moisture';
+            window.location.href = '/moisture';
           }
         });
       }, 3000); // 30000 = 30 seconds
