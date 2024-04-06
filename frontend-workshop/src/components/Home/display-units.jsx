@@ -1,12 +1,11 @@
-const unitMap = {
-    ph_level: '',
-    water_temperature: '°C',
-    water_ec: 'µS/cm',
-    tds: 'ppm',
-    water_level: '%',
+const keyDisplay = {
     moisture: '%',
+    tds: 'ppm',
+    pH: '',
+    EC: 'ms/cm',
     ambient_light: 'lux',
-    ambient_temperature_humidity: '%',
+    temperature: '°C',
+    humidity: ''
 };
 
-export default unitMap;
+export default keyDisplay;
