@@ -16,13 +16,13 @@ const moistureIndex = () => {
         fetch('http://localhost:5000/moistureData').then((response) => {
           if (response.ok) {
             console.log('Reload');
-            console.clear();
+            //console.clear();
 
             // Redirect to the pH view route after 30 seconds of inactivity
-            window.location.href = '/moisture';
+            window.location.href = 'https://farmcup-website-host.vercel.app/moisture';
           }
         });
-      }, 30000); // 30000 = 30 seconds
+      }, 3000); // 30000 = 30 seconds
     }
 
     // Check if the current page is the pHLevel page before resetting the timeout
