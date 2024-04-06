@@ -22,7 +22,7 @@ const moistureIndex = () => {
             window.location.href = '/moisture';
           }
         });
-      }, 3000); // 30000 = 30 seconds
+      }, 30000); // 30000 = 30 seconds
     }
 
     // Check if the current page is the pHLevel page before resetting the timeout
