@@ -16,7 +16,7 @@ function Home() {
       <Box border={'1px'}>
         <Clock />
       </Box>
-      <Box>{/* <CameraFeed/> */}</Box>
+      {/* <Box><CameraFeed/></Box> */}
       <Box border={'1px'}>
         <HomeIndex />
       </Box>

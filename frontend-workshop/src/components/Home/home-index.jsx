@@ -13,7 +13,7 @@ import {
 import data from '../../utils/parameters.json';
 import keyDisplay from './key-display-names';
 import unitMap from './display-units';
-import axios from 'axios';
+import axios from 'axios'; 
 
 const HomeIndex = () => {
   const [home, setHome] = useState([]);
@@ -31,6 +31,7 @@ const HomeIndex = () => {
   }, []);
 
   console.log(home.map((data) => data.pH));
+  console.log(home.map((data) => data.tds));
 
   //Last item in the 'database' for updated values
   const lastItem = data[data.length - 1];
