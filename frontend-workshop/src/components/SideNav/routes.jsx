@@ -2,7 +2,7 @@ const routes = [
   { path: '/', name: 'Home' },
   { path: '/moisture', name: 'Cocopeat Moisture' },
   { path: '/tds', name: 'Total Dissolved Solids' },
-  { path: '/pHLevel', name: 'pH Level' },
+  { path: '/pH', name: 'pH Level' },
   { path: '/ec', name: 'Electrical Conductivity' },
   { path: '/ambient_light', name: 'Ambient Light' },
   { path: '/humidity', name: 'Humidity' },
