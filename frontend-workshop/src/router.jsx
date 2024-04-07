@@ -20,7 +20,7 @@ const routes = [
       { path: '/404', element: <ErrorPage /> },
       { path: '/moisture', element: <Moisture /> },
       { path: '/tds', element: <TDS /> },
-      { path: '/pHLevel', element: <PHLevel /> },
+      { path: '/pH', element: <PHLevel /> },
       { path: '/ec', element: <EC /> },
       { path: '/ambient_light', element: <AmbientLight /> },
       { path: '/humidity', element: <Humidity /> },
