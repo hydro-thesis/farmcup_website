@@ -11,10 +11,10 @@ function App() {
         w="full"
         templateAreas={{ base: `"sidenav" "content"`, md: `"sidenav content"` }}
         gridTemplateColumns={[`1fr`, `1fr`, `200px 1fr`]}>
-        <GridItem area="sidenav" bgColor={''} border={'1px'}>
+        <GridItem area="sidenav" bgColor={''}>
           <SideNav />
         </GridItem>
-        <GridItem area="content" bgColor={''} border={'1px'}>
+        <GridItem area="content" bgColor={''}>
           <Outlet />
         </GridItem>
       </Grid>
