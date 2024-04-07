@@ -13,6 +13,7 @@ import {
 import keyDisplay from './key-display-names';
 import unitMap from './display-units';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const HomeIndex = () => {
   const [home, setHome] = useState([]);
@@ -53,7 +54,7 @@ const HomeIndex = () => {
               borderRadius={'10px'}
               shadow={1}
               boxShadow={'lg'}>
-              <Box>
+              <Box as = {Link} to={`/${key}`}>
                 <StatLabel as="h1" size="md" textAlign={'left'} ml={5}>
                   {keyDisplay[key] || key}
                 </StatLabel>
