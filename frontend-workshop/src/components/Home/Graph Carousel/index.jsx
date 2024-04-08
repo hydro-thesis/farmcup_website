@@ -8,6 +8,7 @@ import ECLevelGraph from '../../graphs/electrical-conductivity'
 import AmbientLightGraph from '../../graphs/ambient-light'
 import AmbientHumidityGraph from '../../graphs/ambient_humidity'
 import AmbientTemperatureGraph from '../../graphs/ambient_temperature'
+import WaterLevelGraph from '../../graphs/water-level'
 
 const settings = {
   dots: true,
@@ -31,7 +32,8 @@ function GraphCarousel() {
     <MoistureGraph key='moistureGraph' />,
     <ECLevelGraph key='ecLevelGraph' />,
     <AmbientHumidityGraph key='ambientHumidityGraph'/>,
-    <AmbientTemperatureGraph key='ambientTemperatureGraph'/>
+    <AmbientTemperatureGraph key='ambientTemperatureGraph'/>,
+    <WaterLevelGraph key='waterLevelGraph'/>
   ]
 
   return (
