@@ -5,7 +5,8 @@ const keyDisplay = {
     EC: 'ms/cm',
     ambient_light: 'lux',
     temperature: '°C',
-    humidity: ''
+    humidity: '',
+    water_level: 'cm'
 };
 
 export default keyDisplay;
