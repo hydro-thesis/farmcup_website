@@ -10,6 +10,7 @@ import EC from './components/EC/ec-index';
 import AmbientLight from './components/AmbientLight/ambient-light-index';
 import Humidity from './components/Humidity/humidity-index';
 import Temperature from './components/Temperature/temperature-index';
+import WaterLevel from './components/Water Level/water-level-index';
 
 const routes = [
   {
@@ -24,7 +25,8 @@ const routes = [
       { path: '/ec', element: <EC /> },
       { path: '/ambient_light', element: <AmbientLight /> },
       { path: '/humidity', element: <Humidity /> },
-      { path: '/temperature', element: <Temperature /> }
+      { path: '/temperature', element: <Temperature /> },
+      { path: 'water_level', element: <WaterLevel/>}
     ]
   },
   {

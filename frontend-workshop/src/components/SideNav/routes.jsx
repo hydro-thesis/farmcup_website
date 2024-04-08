@@ -6,7 +6,9 @@ const routes = [
   { path: '/ec', name: 'Electrical Conductivity' },
   { path: '/ambient_light', name: 'Ambient Light' },
   { path: '/humidity', name: 'Humidity' },
-  { path: '/temperature', name: 'Temperature' }
+  { path: '/temperature', name: 'Temperature' },
+  { path: '/water_level', name: 'Water Level'}
+
 ];
 
 export default routes;
