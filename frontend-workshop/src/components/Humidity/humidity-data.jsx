@@ -43,7 +43,7 @@ function humidityTable() {
         label: 'Humidity Value',
         data: humidity.map((data) => data.humidity),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]

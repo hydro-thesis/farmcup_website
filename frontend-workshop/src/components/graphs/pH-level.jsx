@@ -32,7 +32,7 @@ function PHLevelGraph() {
         label: 'pH Value',
         data: pH.map((data) => data.pH),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]
