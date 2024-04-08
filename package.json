@@ -2,5 +2,6 @@
   "dependencies": {
     "react-router-dom": "^6.22.3",
     "react-webcam": "^7.2.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
