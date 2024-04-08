@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import {
-  Button,
   Divider,
   Flex,
   Grid,
-  Input,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  VStack
 } from '@chakra-ui/react';
 
 import 'chart.js/auto';
@@ -60,5 +49,4 @@ function PHLevelGraph() {
 }
 
 PHLevelGraph.propTypes = {};
-
 export default PHLevelGraph;
