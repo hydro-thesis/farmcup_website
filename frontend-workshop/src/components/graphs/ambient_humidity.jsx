@@ -32,7 +32,7 @@ function AmbientHumidityGraph() {
         label: 'Humidity Value',
         data: humidityData.map((data) => data.humidity),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]

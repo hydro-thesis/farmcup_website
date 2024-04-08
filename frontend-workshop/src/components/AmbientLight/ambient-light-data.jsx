@@ -43,7 +43,7 @@ function ambientLightTable() {
         label: 'Ambient Light Value',
         data: ambientLight.map((data) => data.ambient_light),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]

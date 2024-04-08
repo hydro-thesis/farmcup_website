@@ -35,7 +35,7 @@ function MoistureGraph() {
         label: 'Moisture Value',
         data: moisture.map((data) => data.moisture), //moisture column in db
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]

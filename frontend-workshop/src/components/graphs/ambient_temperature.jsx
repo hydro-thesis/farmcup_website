@@ -32,7 +32,7 @@ function AmbientTemperatureGraph() {
         label: 'temperature Value',
         data: temperature.map((data) => data.temperature),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#48BB78',
         tension: 0.1
       }
     ]
