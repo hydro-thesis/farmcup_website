@@ -5,19 +5,22 @@ import HomeHeader from './header';
 import Clock from '../../assets/live-clock';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import theme from '../../theme';
-import CameraFeed from '../../components/Home/camera-feed';
+import TopGrid from './../../components/Home/top-grid';
 
 function Home() {
   return (
     <ChakraProvider theme={theme}>
-      <Box border={'1px'}>
+      <Box border={''}>
         <HomeHeader />
       </Box>
-      <Box border={'1px'}>
+      <Box border={''}>
         <Clock />
       </Box>
       <Box>{/* <CameraFeed/> */}</Box>
-      <Box border={'1px'}>
+      <Box>
+        <TopGrid/>
+      </Box>
+      <Box border={''}>
         <HomeIndex />
       </Box>
     </ChakraProvider>
