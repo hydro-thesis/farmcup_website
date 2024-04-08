@@ -44,14 +44,15 @@ const HomeIndex = () => {
 
   return (
     <Flex justify={'center'}>
-      <SimpleGrid columns={{ sm: 1, md: 4 }} spacing={7} width={'100%'} p={70}>
+      <SimpleGrid columns={{sm:1, md:4}} width={'100%'} spacing={7} p={70}>
+      {/* <SimpleGrid columns={{ sm: 1, md: 4 }} spacing={7} width={'100%'} p={70}> */}
         {Object.keys(lastItem).map((key) => (
           key !== 'id' && key !== 'time_stamp' ? (
             <Stat
               as={GridItem}
               key={key}
-              border={'1px'}
-              borderRadius={'10px'}
+              border={''}
+              borderRadius={'8px'}
               shadow={1}
               boxShadow={'lg'}>
               <Box as = {Link} to={`/${key}`}>
