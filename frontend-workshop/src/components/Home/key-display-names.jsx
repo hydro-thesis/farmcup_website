@@ -5,7 +5,8 @@ const keyDisplay = {
     EC: 'Electrical Conductivity',
     ambient_light: 'Ambient Light',
     temperature: 'Ambient Temperature',
-    humidity: 'Ambient Humidity'
+    humidity: 'Ambient Humidity',
+    water_level: 'Water Level'
 };
 
 export default keyDisplay;
