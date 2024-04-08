@@ -9,7 +9,7 @@ import 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-function AmbientGraph() {
+function AmbientLightGraph() {
   const [ambientLight, setambientLight] = useState([]);
 
   useEffect(() => {
@@ -48,6 +48,5 @@ function AmbientGraph() {
   );
 }
 
-AmbientGraph.propTypes = {};
-
-export default AmbientGraph;
+AmbientLightGraph.propTypes = {};
+export default AmbientLightGraph;
