@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 
 const HomeHeader = () => {
-  return <Heading mb={8}>Farm Cup Dashboard</Heading>;
+  return <Heading pl={16} mt={3} mb={3} textAlign={'left'}>Farm Cup Dashboard</Heading>;
 };
 
 export default HomeHeader;

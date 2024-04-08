@@ -44,11 +44,11 @@ const Clock = () => {
 
     return (
         <Flex justify={'center'}>
-            <SimpleGrid columns={{base:1, md: 2}} w={'100%'}>
-                <GridItem bgColor={''} textAlign={'left'} ml={5}>
+            <SimpleGrid columns={{base:1, md: 2}} w={'100%'} mb={8}>
+                <GridItem bgColor={''} textAlign={'left'} pl={16}>
                     <Text size={'md'}> {date} </Text>
                 </GridItem>
-                <GridItem bgColor={''} textAlign={'right'} mr={5}>
+                <GridItem bgColor={''} textAlign={'right'} pr={16}>
                     <Text size={'md'}> {time} </Text>
                 </GridItem>
             </SimpleGrid>
