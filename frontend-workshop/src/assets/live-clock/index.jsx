@@ -16,11 +16,12 @@ const Clock = () => {
 
     function formatDate(d) {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         const dayOfWeek = days[d.getDay()];
         const year = d.getFullYear();
-        const month = formatTime(d.getMonth() + 1); // Months are zero-indexed
+        const month = monthName[d.getMonth()]; // Months are zero-indexed
         const day = formatTime(d.getDate());
-        return `${dayOfWeek}, ${month}-${day}-${year}`;
+        return `${dayOfWeek}, ${month} ${day}, ${year}`;
     }
 
     function tick() {
