@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Box, Container, Flex, Stack, VStack, Divider, Text } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import routes from './routes';
+import FarmCupLogo from '../../assets/farm-cup.svg'
 
 const SideNav = () => {
   const { pathname } = useLocation();
@@ -15,13 +16,12 @@ const SideNav = () => {
         justifyContent={{ base: `center`, md: `flex-start` }}>
         <VStack>
           <Box
-            p="60px"
+            w={'100%'}
+            h={'auto'}
             color="white"
             mt="4"
-            bg="teal.500"
             rounded="md"
-            shadow="md"
-            marginTop={5}></Box>
+            marginTop={5} as='img' src={FarmCupLogo}/>
           <Divider height="30px" />
         </VStack>
         {routes.map(({ path, name }) => (
